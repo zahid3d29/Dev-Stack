@@ -5,7 +5,6 @@ import { IoIosStar } from "react-icons/io";
 
 const StackCard = ({
   stack,
-  selectedStacks,
   setSelectedStacks,
   addedStacks,
   setAddedStacks,
