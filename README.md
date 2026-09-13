@@ -1,76 +1,134 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# DevStack
 
-Currently, two official plugins are available:
+DevStack is a simple and responsive web application for exploring different development technologies and building your own development stack. Users can browse technologies, view their details, and add technologies to their personal stack.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Website
 
-## React Compiler
+https://silver-custard-de954c.netlify.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+* React
+* JavaScript
+* Tailwind CSS
+* React Icons
+* JSON
+* Vite
+* Netlify
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Explore Technologies
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Users can browse different technologies such as React, Vue.js, Svelte, Next.js, Node.js, JavaScript, TypeScript, PostgreSQL, Redis, Tailwind CSS, Docker, and Java.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Build Your Own Stack
 
+Users can add technologies to their development stack and see the selected technologies together in one place.
+
+### 3. Responsive Design
+
+The website is fully responsive and works on desktop, tablet, and mobile devices. It also includes a mobile navigation menu for smaller screens.
+
+
+
+
+
+## 1. What is JSX, and why is it used in React?
+
+JSX is a syntax that lets us write HTML-like code inside JavaScript. React uses JSX because it makes UI code easier to read and write.
+
+
+
+
+## 2. What is the difference between props and state?
+
+**Props** are data passed from a parent component to a child component. They are read-only.
+
+**State** is data managed inside a component. State can change when the user interacts with the application.
+
+
+
+## 3. What does the `useState` hook do, and where did you use it in this project?
+
+`useState` lets us store and update data inside a React component.
+
+In this project, I used `useState` to manage the selected technologies in the user's stack and also to control the mobile navigation menu.
+
+
+
+
+---
+
+## 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+
+`useEffect` lets us run code when a component renders or when some data changes.
+
+I used `useEffect` to load the technology data from the JSON file when the application starts. This keeps the data loading separate from the UI rendering.
+
+Example:
+
+```jsx
+useEffect(() => {
+  fetch("/tech.json")
+    .then((res) => res.json())
+    .then((data) => setTechnologies(data));
+}, []);
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The empty dependency array means the effect runs when the component loads.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 5. Why does every item in a `.map()` list need a unique `key` prop?
 
+React needs a unique `key` to identify each item in a list.
+
+It helps React understand which items have changed, been added, or been removed.
+
+
+
+
+## 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means showing different UI depending on a condition.
+
+For example, when the selected stack is empty, we can show an empty-stack message:
+
+```jsx
+{stack.length === 0 ? (
+  <p>Your stack is empty. Add some technologies.</p>
+) : (
+  <StackList stack={stack} />
+)}
 ```
-# Dev-Stack
+
+If there are no technologies in the stack, the empty message is displayed. Otherwise, the selected technologies are displayed.
+
+---
+
+## 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+A parent sends data to a child using **props**.
+
+For example:
+
+```jsx
+<TechCard tech={tech} />
+```
+
+Here, the `tech` data is passed from the parent to `TechCard`.
+
+To send something back to the parent, the parent can pass a function as a prop:
+
+```jsx
+<TechCard
+  tech={tech}
+  onAdd={handleAdd}
+/>
+
+
+
+
+This allows React components to share data and actions in a controlled way.
