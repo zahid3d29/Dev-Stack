@@ -53,10 +53,10 @@ const AvailableStacks = ({
   return (
     <>
       <section className="flex flex-col items-center justify-center gap-2 mb-16">
-        <div className="container mx-auto">
-          <div className="headingArea text-left mb-8">
+        <div className="container mx-auto px-4">
+          <div className="headingArea text-center md:text-left mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold my-4">
-              Explore the{" "}
+              Explore the {" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
                 Technologies
               </span>

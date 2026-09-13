@@ -4,18 +4,18 @@ const Footer = () => {
   return (
     // Four column footer with links and copyright information
     <footer className="bg-white text-gray-600 py-16">
-      <div className="footer container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div>
+      <div className="footer container mx-auto grid grid-cols-1 px-4 md:px-0 md:grid-cols-4 gap-4">
+        <div className="text-center md:text-left mb-6 md:mb-0">
           <img
             src={Logo}
             alt="Dev-stack Logo"
-            className="mb-2"
+            className="mx-auto md:mx-0 mb-2"
           />
           <p className="text-sm">
             Curated tools, technologies, and resources for developers building
             modern software.
           </p>
-          <ul className="social-link flex gap-2 mt-2">
+          <ul className="social-link mx-auto md:mx-0 text-center md:text-left flex gap-2 mt-2">
             <li>
               <a href="#" className="hover:text-gray-400">
                 Github
@@ -33,7 +33,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="hidden md:block">
           <h4 className="font-bold mb-2">Product</h4>
           <ul className="text-sm">
             <li>
@@ -53,7 +53,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="hidden md:block">
           <h4 className="font-bold mb-2">Company</h4>
           <ul className="text-sm">
             <li>
@@ -73,7 +73,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="hidden md:block">
           <h4 className="font-bold mb-2">Legal</h4>
           <ul className="text-sm">
             <li>
