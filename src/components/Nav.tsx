@@ -6,76 +6,125 @@ import { IoClose } from "react-icons/io5";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <section className="relative border-b border-gray-100 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid h-16 grid-cols-3 items-center md:flex md:justify-between">
+    <section className="relative w-full border-b border-gray-100 bg-white">
+      <div className="container mx-auto w-full px-4 sm:px-6 lg:px-8">
+
+        <div className="grid h-16 grid-cols-3 items-center md:flex md:h-20">
+
           <div className="flex items-center md:w-1/4">
+
             <button
+              type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-xl text-gray-700 hover:bg-gray-100 md:hidden"
-              aria-label="Toggle menu"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-xl text-gray-700 transition hover:bg-gray-100 md:hidden"
+              aria-label="Toggle navigation"
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <IoClose /> : <RxHamburgerMenu />}
             </button>
-          </div>
 
-          <div className="flex justify-center md:w-1/4 md:justify-start">
-            <a href="#">
-              <img src={Logo} alt="Logo" className="h-auto w-24 md:w-28" />
+  
+            <a href="#" className="hidden md:block">
+              <img src={Logo} alt="Logo" className="h-auto w-28" />
             </a>
           </div>
 
-          <ul className="hidden items-center gap-8 text-gray-700 md:flex">
-            <li className="font-bold text-green-500">
-              <a href="#">Home</a>
-            </li>
+  
+          <div className="flex justify-center md:hidden">
+            <a href="#">
+              <img src={Logo} alt="Logo" className="h-auto w-24" />
+            </a>
+          </div>
 
-            <li>
-              <a href="#">Technology</a>
-            </li>
 
-            <li>
-              <a href="#">Projects</a>
-            </li>
+          <nav className="hidden flex-1 justify-center md:flex">
+            <ul className="flex items-center gap-8 text-sm text-gray-700">
+              <li>
+                <a
+                  href="#"
+                  className="font-semibold text-green-500 transition hover:text-green-600"
+                >
+                  Home
+                </a>
+              </li>
 
-            <li>
-              <a href="#">About</a>
-            </li>
+              <li>
+                <a href="#" className="transition hover:text-green-500">
+                  Technology
+                </a>
+              </li>
 
-            <li>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
+              <li>
+                <a href="#" className="transition hover:text-green-500">
+                  Projects
+                </a>
+              </li>
 
-          <div className="flex items-center justify-end gap-1.5 md:w-1/4 md:gap-4">
+              <li>
+                <a href="#" className="transition hover:text-green-500">
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a href="#" className="transition hover:text-green-500">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+
+          <div className="flex items-center justify-end gap-1.5 md:w-1/4 md:gap-3">
+            {/* Login */}
             <button
+              type="button"
               className="
-                px-2 py-1
-                text-[11px]
+                rounded-md
+                px-2
+                py-1.5
+                text-[10px]
                 font-medium
                 text-gray-700
+                transition
+                hover:bg-gray-100
+
+                sm:px-3
+                sm:text-xs
+
                 md:px-3
                 md:py-2
-                md:text-base
+                md:text-sm
               "
             >
               Login
             </button>
 
+            {/* Sign Up */}
             <button
+              type="button"
               className="
                 rounded-full
                 bg-green-500
-                px-3
+                px-2.5
                 py-1.5
-                text-[10px]
-                font-medium
+                text-[9px]
+                font-semibold
                 text-white
+                transition
                 hover:bg-green-600
-                md:px-5
+
+                sm:px-3
+                sm:text-[10px]
+
+                md:px-4
                 md:py-2
-                md:text-base
+                md:text-sm
               "
             >
               Sign Up
@@ -83,59 +132,112 @@ const Navbar = () => {
           </div>
         </div>
 
+
         <div
           className={`
-            overflow-hidden transition-all duration-300 md:hidden
-            ${menuOpen ? "max-h-96 pb-4" : "max-h-0"}
+            overflow-hidden transition-all duration-300 ease-in-out md:hidden
+            ${menuOpen ? "max-h-[400px] pb-4" : "max-h-0"}
           `}
         >
-          <nav className="rounded-xl border border-gray-100 bg-gray-50 p-3">
+          <nav className="rounded-xl border border-gray-100 bg-gray-50 p-2">
             <ul className="space-y-1">
+              {/* Home */}
               <li>
                 <a
                   href="#"
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg bg-green-50 px-4 py-3 text-sm font-semibold text-green-500"
+                  onClick={closeMenu}
+                  className="
+                    block
+                    rounded-lg
+                    bg-green-50
+                    px-4
+                    py-2.5
+                    text-sm
+                    font-semibold
+                    text-green-500
+                    transition
+                    hover:bg-green-100
+                  "
                 >
                   Home
                 </a>
               </li>
 
+              {/* Technology */}
               <li>
                 <a
                   href="#"
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-sm text-gray-700 hover:bg-white"
+                  onClick={closeMenu}
+                  className="
+                    block
+                    rounded-lg
+                    px-4
+                    py-2.5
+                    text-sm
+                    text-gray-700
+                    transition
+                    hover:bg-white
+                  "
                 >
                   Technology
                 </a>
               </li>
 
+              {/* Projects */}
               <li>
                 <a
                   href="#"
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-sm text-gray-700 hover:bg-white"
+                  onClick={closeMenu}
+                  className="
+                    block
+                    rounded-lg
+                    px-4
+                    py-2.5
+                    text-sm
+                    text-gray-700
+                    transition
+                    hover:bg-white
+                  "
                 >
                   Projects
                 </a>
               </li>
 
+              {/* About */}
               <li>
                 <a
                   href="#"
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-sm text-gray-700 hover:bg-white"
+                  onClick={closeMenu}
+                  className="
+                    block
+                    rounded-lg
+                    px-4
+                    py-2.5
+                    text-sm
+                    text-gray-700
+                    transition
+                    hover:bg-white
+                  "
                 >
                   About
                 </a>
               </li>
 
+              {/* Contact */}
               <li>
                 <a
                   href="#"
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-sm text-gray-700 hover:bg-white"
+                  onClick={closeMenu}
+                  className="
+                    block
+                    rounded-lg
+                    px-4
+                    py-2.5
+                    text-sm
+                    text-gray-700
+                    transition
+                    hover:bg-white
+                  "
                 >
                   Contact
                 </a>
