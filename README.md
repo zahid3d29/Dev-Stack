@@ -5,7 +5,7 @@ DevStack is a simple and responsive web application for exploring different deve
 
 ## Live Website
 
-https://silver-custard-de954c.netlify.app/
+https://devtechzahid.netlify.app/
 
 ## Technologies Used
 
