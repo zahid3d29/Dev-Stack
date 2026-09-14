@@ -2,7 +2,7 @@ import Logo from "../assets/img/logo-text.png";
 
 const Footer = () => {
   return (
-    // Four column footer with links and copyright information
+    //Four-column footer with links and copyright information
     <footer className="bg-white text-gray-600 py-16">
       <div className="footer container mx-auto grid grid-cols-1 px-4 md:px-0 md:grid-cols-4 gap-4">
         <div className="text-center md:text-left mb-6 md:mb-0">
@@ -17,17 +17,17 @@ const Footer = () => {
           </p>
           <ul className="social-link mx-auto md:mx-0 text-center md:text-left flex gap-2 mt-2">
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="https://github.com/zahid3d29/" className="hover:text-gray-400">
                 Github
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="https://x.com/zahid3d29" className="hover:text-gray-400">
                 Twitter
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="https://www.linkedin.com/in/zahid3d9/" className="hover:text-gray-400">
                 Linkedin
               </a>
             </li>
