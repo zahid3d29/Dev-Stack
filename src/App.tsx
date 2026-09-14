@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 const stacksFetch = async (): Promise<Istack[]> => {
   const res = await fetch("/stacks.json");
   if (!res.ok) {
-    throw new Error(`Unable to load stacks: ${res.status}`);
+    throw new Error(`Unable to load stacks from api data: ${res.status}`);
   }
   const data = await res.json();
   return data;
@@ -17,7 +17,6 @@ const stacksFetch = async (): Promise<Istack[]> => {
 
 function App() {
   // console.log(stacksFetch());
-
   const stacksPromise = stacksFetch();
   return (
     <>
