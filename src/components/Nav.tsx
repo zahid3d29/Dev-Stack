@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <section className="relative w-full border-b border-gray-100 bg-white">
+    <section className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white">
       <div className="container mx-auto w-full px-4 sm:px-6 lg:px-8">
 
         <div className="grid h-16 grid-cols-3 items-center md:flex md:h-20">
